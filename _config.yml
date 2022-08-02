@@ -1,8 +1,8 @@
 # Website details
-name: Name
-description: Description
+name: Meownime
+description: Download anime subtitle indonesia
 email: email@site.com
-author: author
+author: meow
 lang: en
 locale: en_US
 
@@ -11,7 +11,7 @@ paginate: 10
 highlighter: rouge
 markdown: kramdown
 plugins: [jekyll-paginate]
-timezone: America/New_York
+timezone: Asia/Jakarta
 paginateLabel: page
 paginate_path: "page/:num"
 permalink: /:categories/:year/:month/:day/:title
@@ -19,7 +19,7 @@ baseurl: https://ozgrozer.github.io/dasper
 
 # Includes
 addthisId: ""
-disqusUsername: ""
+disqusUsername: "meownime-1"
 googleAnalyticsId: ""
 
 # Search engine verifications
