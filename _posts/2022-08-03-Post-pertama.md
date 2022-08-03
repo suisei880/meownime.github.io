@@ -5,7 +5,6 @@ tags: [Other]
 fullview: false
 category : Other
 description : ini adalah post pertama dengan tujuan untuk mengetes bagaimana membuat post di jekyll
-comments: true
 ---
 <h2>Hi Semua</h2>
 
