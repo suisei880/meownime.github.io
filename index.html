@@ -1,73 +1,60 @@
 ---
+title: Home
 layout: default
+background: '/img/bg-index.jpg'
 ---
 
-<!-- Don't show pagination bar in homepage -->
-{% if paginator.page > 1 %}
-
-  <!-- Include pagination bar -->
-  {% include pagination.html section="top" %}
-
+<!-- Home Intro
+================================================== -->
+{% if page.url == "/" %} 
+<div class="rounded mb-5 hero">
+  <div class="row align-items-center justify-content-between">
+    <div class="col-md-6">
+      <h1 class="font-weight-bold mb-4 serif-font">Let me  teach you how to become successful online</h1>
+      <p class="lead mb-4">My name is Lyam and I'm here to share with you my knowledge and experience of over 10 years of monetizing my blog.</p>
+      <a href="{{site.baseurl}}/about" class="btn btn-dark text-white px-5 btn-lg">About me</a>
+    </div>
+    <div class="col-md-6 text-right pl-0 pl-lg-4">
+      <img class="intro" height="500" src="{{site.baseurl}}/assets/images/intro.svg">      
+    </div>
+  </div>
+</div>
 {% endif %}
 
-<!-- Loop for posts by paginator -->
-{% for post in paginator.posts %}
-
-  <!-- Article -->
-  <article>
-
-    <!-- Article title -->
-    <a href="{{ site.baseurl }}{{ post.url }}" class="h1">{{ post.title }}</a>
-
-      <!-- If article has a cover photo -->
-      {% if post.coverPhoto %}
-
-        <!-- Article image with aspect ratio -->
-        <a href="{{ site.baseurl }}{{ post.url }}" class="ar-container">
-          <span class="ar-content" style="background-image: url({{ post.coverPhoto }});"></span>
-        </a><!-- .ar-container -->
-
+<!-- Featured
+================================================== -->
+<section class="row">
+  {% for post in site.posts %}
+      {% if post.featured == true %}
+          <div class="col-md-4 mb-5">
+          {% include postbox.html %}
+          </div>
       {% endif %}
+  {% endfor %}
+  </div>
+</section>
 
-    <!-- Article pre description -->
-    <section class="max-height">{{ post.content | strip_html | slice: 0, 200 }}</section>
-
-    <!-- Article date & article continue reading button container -->
-    <div class="article__bottom">
-
-      <!-- Article date -->
-      <span class="article__date">
-        {% if site.lang == "tr" %}
-          {% assign m = post.date | date: "%-m" %}
-          {{ post.date | date: "%-d" }} 
-          {% case m %}
-            {% when "1" %}OCAK 
-            {% when "2" %}ŞUBAT 
-            {% when "3" %}MART 
-            {% when "4" %}NİSAN 
-            {% when "5" %}MAYIS 
-            {% when "6" %}HAZİRAN 
-            {% when "7" %}TEMMUZ 
-            {% when "8" %}AĞUSTOS 
-            {% when "9" %}EYLÜL 
-            {% when "10" %}EKİM 
-            {% when "11" %}KASIM 
-            {% when "12" %}ARALIK 
-          {% endcase %}
-          {{ post.date | date: "%Y" }}
-        {% else %}
-          {{ post.date | date_to_long_string | upcase }}
-        {% endif %}
+<!-- Posts List with Sidebar (except featured)
+================================================== -->
+<section class="row">
+  <div class="col-sm-8">
+    <div class="row">
+      {% for post in paginator.posts %}
+      {% unless post.featured == true %}
+      <div class="col-md-6 mb-5">
+        {% include postbox.html %}
+      </div>
+      {% endunless %}
+      {% endfor %}
+    </div>
+    <!-- Pagination -->
+    <div class="bottompagination">
+      <span class="navigation" role="navigation">
+          {% include pagination.html %}
       </span>
-
-      <!-- Article continue reading button -->
-      <a class="article__button" href="{{ site.baseurl }}{{ post.url }}">{% if site.lang == "tr" %}DEVAMINI OKU{% else %}CONTINUE READING{% endif %}</a>
-
-    </div><!-- .article__bottom -->
-
-  </article><!-- article -->
-
-{% endfor %}
-
-<!-- Include pagination bar -->
-{% include pagination.html section="bottom" %}
+    </div>
+  </div>
+  <div class="col-sm-4">
+    {% include sidebar.html %}
+  </div>
+</section>
