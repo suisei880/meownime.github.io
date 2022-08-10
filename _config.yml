@@ -3,8 +3,8 @@ email: dampigbed@fanclub.pm
 timezone: UTC
 baseurl: ""
 permalink: "/:title/"
-logo: 'assets/images/logo.png'
-favicon: 'assets/images/favicon.ico'
+logo: 'assets/images/favicon.svg'
+favicon: 'assets/images/favicon.svg'
 author: Sal
 paginate: 30
 disqus: 'meownime-1'
@@ -24,14 +24,14 @@ ganalytics: UA-113961478-1
 
 # Authors
 authors:
-  sal:
+  Meow:
     name: Meow
-    display_name: Sal
-    avatar: 'assets/images/sal.png'
+    display_name: Meow
+    avatar: 'assets/images/favicon.svg'
     email: dampigbed@fanclub.pm
     web: https://suisei880.github.io
     twitter: https://twitter.com/airdrop434
-    description: "Author of Affiliates, a template available for WordPress, HTML, Ghost and Jekyll. You are currently previewing Jekyll template demo."
+    description: "Pemalas"
 
 # Social
 social:
